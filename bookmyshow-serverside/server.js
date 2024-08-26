@@ -7,22 +7,22 @@ require("dotenv").config();
 
 const bookingRoute = require("./Routes/movieRoute");
 
-// Middleware setup
-app.use(bodyParser.urlencoded({ extended: false })); // Parse URL-encoded bodies
-app.use(bodyParser.json()); // Parse JSON bodies
-app.use(cors()); // Enable CORS
 
-connection(); // Connect to the MongoDB database
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json()); s
+app.use(cors()); 
 
-// Home page route
+connection(); 
+
+
 app.get("/", async (req, res) => {
   res.send("hi i am home page");
 });
 
-// Booking API route
+
 app.use("/api", bookingRoute);
 
-// Start the server
+
 const port = process.env.PORT || 8081;
 app.listen(port, () => console.log(`App listening on port ${port}!`));
 
